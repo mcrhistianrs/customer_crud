@@ -3,7 +3,7 @@
 import { Injectable } from '@nestjs/common';
 import { Customer } from '../../../domain/entities/customer.entity';
 import { CreateCustomerDto } from '../../../application/dtos/customer/create.customer.dto';
-import { CreateCustomerService } from '../../services/customer/create-customer-service';
+import { CreateCustomerService } from '../../services/customer/create.customer.service';
 
 @Injectable()
 export class CreateCustomerUseCase {
