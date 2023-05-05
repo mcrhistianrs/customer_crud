@@ -1,12 +1,10 @@
 import { Test } from '@nestjs/testing';
 import { CreateCustomerService } from './create.customer.service';
 import { CustomerRepository } from '../../../infra/repositories/customer.repository';
-import { Customer } from '../../../domain/entities/customer.entity';
 import { PrismaService } from '../../../infra/database/prisma.service';
 
 describe('CreateCustomerService', () => {
   let sut: CreateCustomerService;
-  let customerRepository: CustomerRepository;
   let prismaService: PrismaService;
 
   beforeEach(async () => {
@@ -15,7 +13,6 @@ describe('CreateCustomerService', () => {
     }).compile();
 
     sut = module.get<CreateCustomerService>(CreateCustomerService);
-    customerRepository = module.get<CustomerRepository>(CustomerRepository);
     prismaService = module.get<PrismaService>(PrismaService);
   });
 
