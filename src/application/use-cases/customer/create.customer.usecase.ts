@@ -1,5 +1,3 @@
-// src/application/use-cases/customer/create-customer.usecase.ts
-
 import { Injectable } from '@nestjs/common';
 import { Customer } from '../../../domain/entities/customer.entity';
 import { CreateCustomerDto } from '../../../application/dtos/customer/create.customer.dto';
