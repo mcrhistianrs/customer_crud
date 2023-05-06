@@ -11,7 +11,7 @@ export class FindAllCustomerService {
     try {
       result = await this.customerRepository.findAll();
     } catch (error) {
-      throw new Error('Its occured a database error');
+      throw new BadRequestException('Its occured a database error');
     }
     return result;
   }
