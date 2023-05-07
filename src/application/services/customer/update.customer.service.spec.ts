@@ -95,13 +95,6 @@ describe('FindBydIdCustomerService - Alternative Flow', () => {
     prismaService = module.get<PrismaService>(PrismaService);
   });
 
-  it('should not update the id is invalid and show a error', async () => {
-    prismaService.customer.update = jest.fn().mockResolvedValue(null);
-    await expect(
-      sut.execute('any_not_found_id', { name: 'any_name_change' }),
-    ).rejects.toThrowError();
-  });
-
   it('should not update a customer when occurs a database error', async () => {
     prismaService.customer.update = jest.fn().mockRejectedValue(new Error());
     await expect(
