@@ -56,7 +56,6 @@ describe('CustomersController Create-  Main Flow', () => {
 
 describe('CustomersController  Create-  Alternative Flow', () => {
   let sut: CustomersController;
-  let prismaService: PrismaService;
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
@@ -72,7 +71,6 @@ describe('CustomersController  Create-  Alternative Flow', () => {
     }).compile();
 
     sut = module.get<CustomersController>(CustomersController);
-    prismaService = module.get<PrismaService>(PrismaService);
   });
 
   it('should not  create a customer if the name field is missing and must show a error', async () => {

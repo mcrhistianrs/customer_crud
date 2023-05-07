@@ -57,7 +57,8 @@
       "src/application/dtos/customer",
       "src/main.ts",
       "src/app.module.ts",
-      "src/infra/modules/customer/customer.module.ts"
+      "src/infra/modules/customer/customer.module.ts",
+      "src/infra/database/prisma.service.ts"
     ],
     "moduleFileExtensions": [
       "js",
