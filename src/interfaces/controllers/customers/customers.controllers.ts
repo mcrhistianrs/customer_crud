@@ -23,7 +23,6 @@ export class CustomersController {
     @Body() createCustomerDto: CreateCustomerDto,
   ): Promise<Customer> {
     const { name, email } = createCustomerDto;
-    console.log(name);
     if (name == undefined) {
       throw new BadRequestException('Its missing the name field');
     }
