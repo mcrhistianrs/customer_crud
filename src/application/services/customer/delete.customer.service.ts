@@ -14,9 +14,6 @@ export class DeleteCustomerService {
       throw new BadRequestException('Its occured a database error');
     }
 
-    if (result == null) {
-      throw new BadRequestException('The id was not found');
-    }
     return result;
   }
 }

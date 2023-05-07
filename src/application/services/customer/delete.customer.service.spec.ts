@@ -91,11 +91,6 @@ describe('DeleteCustomerService - Alternative Flow', () => {
     prismaService = module.get<PrismaService>(PrismaService);
   });
 
-  it('should not update the id is invalid and show a error', async () => {
-    prismaService.customer.delete = jest.fn().mockResolvedValue(null);
-    await expect(sut.execute('any_not_found_id')).rejects.toThrowError();
-  });
-
   it('should not update a customer when occurs a database error', async () => {
     prismaService.customer.delete = jest.fn().mockRejectedValue(new Error());
     await expect(sut.execute('any_id')).rejects.toThrowError();
