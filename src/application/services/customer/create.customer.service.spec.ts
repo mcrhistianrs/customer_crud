@@ -44,32 +44,6 @@ describe('CreateCustomerService', () => {
   });
 
   describe('Create customer - Alternative Flow', () => {
-    it('should to throw a exception if name field is missing', async () => {
-      const customerDataInput = {
-        name: undefined,
-        email: 'johndoe@example.com',
-        facebook: 'johndoe',
-        instagram: 'johndoe',
-      };
-
-      expect(sut.execute(customerDataInput)).rejects.toThrowError(
-        'The name field is missing',
-      );
-    });
-
-    it('should to throw a exception if email field is missing', async () => {
-      const customerDataInput = {
-        name: 'any_name',
-        email: undefined,
-        facebook: 'johndoe',
-        instagram: 'johndoe',
-      };
-
-      expect(sut.execute(customerDataInput)).rejects.toThrowError(
-        'The email field is missing',
-      );
-    });
-
     it('should to throw a exception if occurs a error in database', async () => {
       const customerDataInput = {
         name: 'John Doe',

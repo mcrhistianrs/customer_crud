@@ -4,7 +4,7 @@ import { CreateCustomerDto } from '../../../application/dtos/customer/create.cus
 import { Customer } from '../../../domain/entities/customer.entity';
 import { CustomerRepository } from 'src/infra/repositories/customer.repository';
 
-describe('CreateCustomerUseCase', () => {
+describe('CreateCustomerUseCase - Main Flow', () => {
   let sut: CreateCustomerUseCase;
   let createCustomerService: CreateCustomerService;
   let customerRepository: CustomerRepository;
@@ -62,5 +62,42 @@ describe('CreateCustomerUseCase', () => {
     const result = await sut.execute(data);
 
     expect(result).toMatchObject(customerData);
+  });
+});
+
+describe('CreateCustomerUseCase - Alternative Flow', () => {
+  let sut: CreateCustomerUseCase;
+  let createCustomerService: CreateCustomerService;
+  let customerRepository: CustomerRepository;
+
+  beforeEach(() => {
+    createCustomerService = new CreateCustomerService(customerRepository);
+    sut = new CreateCustomerUseCase(createCustomerService);
+  });
+
+  it('should to throw a exception if name field is missing', async () => {
+    const customerDataInput = {
+      name: undefined,
+      email: 'johndoe@example.com',
+      facebook: 'johndoe',
+      instagram: 'johndoe',
+    };
+
+    expect(sut.execute(customerDataInput)).rejects.toThrowError(
+      'The name field is missing',
+    );
+  });
+
+  it('should to throw a exception if email field is missing', async () => {
+    const customerDataInput = {
+      name: 'any_name',
+      email: undefined,
+      facebook: 'johndoe',
+      instagram: 'johndoe',
+    };
+
+    expect(sut.execute(customerDataInput)).rejects.toThrowError(
+      'The email field is missing',
+    );
   });
 });

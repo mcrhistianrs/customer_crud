@@ -10,13 +10,6 @@ export class CreateCustomerService {
   async execute(data: CreateCustomerDto): Promise<Customer> {
     const { name, email, facebook, instagram } = data;
 
-    if (name == undefined) {
-      throw new BadRequestException('The name field is missing');
-    }
-
-    if (email == undefined) {
-      throw new BadRequestException('The email field is missing');
-    }
     const customer = new Customer(name, email, facebook, instagram);
     let result = null;
     try {
