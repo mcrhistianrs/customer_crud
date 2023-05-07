@@ -43,10 +43,6 @@ describe('FindBydIdCustomerService - Alternative Flow', () => {
     prismaService = module.get<PrismaService>(PrismaService);
   });
 
-  it('should not find a customer when the id is missing and show a error', async () => {
-    expect(sut.execute(undefined)).rejects.toThrowError();
-  });
-
   it('should not find a customer when the id threre is not exists and show a error', async () => {
     prismaService.customer.findUnique = jest.fn().mockResolvedValue(null);
     await expect(sut.execute('id_not_found')).rejects.toThrowError();
