@@ -1,7 +1,6 @@
 import { CreateCustomerUseCase } from './create.customer.usecase';
 import { CreateCustomerService } from '../../services/customer/create.customer.service';
 import { CreateCustomerDto } from '../../../application/dtos/customer/create.customer.dto';
-import { Customer } from '../../../domain/entities/customer.entity';
 import { CustomerRepository } from 'src/infra/repositories/customer.repository';
 
 describe('CreateCustomerUseCase - Main Flow', () => {
