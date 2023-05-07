@@ -1,9 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { Customer } from '../../../domain/entities/customer.entity';
-import { CreateCustomerDto } from 'src/application/dtos/customer/create.customer.dto';
 import { CustomerRepository } from '../../../infra/repositories/customer.repository';
-import { Prisma } from '@prisma/client';
-import { throwError } from 'rxjs';
 
 @Injectable()
 export class DeleteCustomerService {
